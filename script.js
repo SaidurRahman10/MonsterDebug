@@ -43,13 +43,9 @@ const typeController = (e) => {
   const newLetterCorrect = validate(newLetter);
 
   if (newLetterCorrect) {
-    display.innerHTML += `<span class="green">${
-      newLetter === " " ? "▪" : newLetter
-    }</span>`;
+    display.innerHTML += `<span class="green">${newLetter === " " ? "▪" : newLetter}</span>`;
   } else {
-    display.innerHTML += `<span class="red">${
-      newLetter === " " ? "▪" : newLetter
-    }</span>`;
+    display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
     errorCount++;
     return errorCount;
   }
@@ -87,7 +83,7 @@ const gameOver = () => {
   resultModal.innerHTML = `
     <h1>Finished!</h1>
     <p>You took: <span class="bold">${Math.round(timeTaken)}</span> seconds</p>
-    <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
+    <p>You made <span class="bold red">${Math.round(errorCount)}</span> mistakes</p>
     <button onclick="closeModal()">Close</button>
   `;
 
@@ -139,7 +135,6 @@ displayHistory();
 setInterval(() => {
   const currentTime = new Date().getTime();
   const timeSpent = (currentTime - startTime) / 1000;
-  document.getElementById("show-time").innerHTML = `${
-    startTime ? Math.round(timeSpent) : 0
-  } seconds`;
+  ;
+  document.getElementById("show-time").innerHTML = `${startTime ? Math.round(timeSpent) : 0} seconds`;
 }, 1000);
